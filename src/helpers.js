@@ -1,4 +1,4 @@
-// Local Storage functions are added here
+// localStorage functions are added here
 export const fetchData = (key) => {
   return JSON.parse(localStorage.getItem(key));
 }
