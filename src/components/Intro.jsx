@@ -26,6 +26,11 @@ const Intro = () => {
             aria-label="Your Name" 
             autoComplete="given-name" 
           />
+          {/* If every form submitted has the name _action then we will know what action needs to be done
+          (_action is a naming convention which allows to pass the value as name i.e. makes it dyanmic naming)
+          e.g., This input is creating a new user then this action will be shown in dashboard _action and
+          that way we will be able to handle multiple form submissions. */}
+          <input type="hidden" name="_action" value="newUser" />
           <button type="submit" className="btn btn--dark">
             <span>Create Account</span>
             <UserPlusIcon width={20} />
