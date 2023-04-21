@@ -2,7 +2,7 @@
 import { useLoaderData } from 'react-router-dom';
 
 // helper function
-import { createBudget, fetchData } from '../helpers';
+import { createBudget, fetchData, waitwa } from '../helpers';
 
 // components
 import Intro from '../components/Intro';
@@ -22,29 +22,31 @@ export function dashboardLoader() {
 // action
 // Handles any action submitted by forms to this page
 export async function dashboardAction({ request }) {
+  await waitwa();
+  
   const data = await request.formData();
   const { _action, ...values } = Object.fromEntries(data);
 
   // new user submission
-  if (_action === "newUser") {
+  if (_action === 'newUser') {
     try {
-      localStorage.setItem("userName", JSON.stringify(values.userName));
+      localStorage.setItem('userName', JSON.stringify(values.userName));
       return toast.success(`Welcome, ${values.userName}`);
     } catch (e) {
-      throw new Error("There was a problem creating your account.");
+      throw new Error('There was a problem creating your account.');
     }
   }
 
   // create budget
-  if (_action === "createBudget") {
+  if (_action === 'createBudget') {
     try {
       createBudget({
         name: values.newBudget,
         amount: values.newBudgetAmount,
       });
-      return toast.success("Budget created!");
+      return toast.success('Budget created!');
     } catch (e) {
-      throw new Error("There was a problem creating your budget.");
+      throw new Error('There was a problem creating your budget.');
     }
   }
 }

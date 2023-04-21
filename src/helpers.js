@@ -1,6 +1,9 @@
+export const waitwa = () => new Promise(res => setTimeout(res, Math.random() * 2000));
+
+// colors
 const generateRandomColor = () => {
   // If budgets is undefined or null then optional chaining '?' will return undefined instead of an error.
-  const existingBudgetLen = fetchData("budgets")?.length ?? 0;
+  const existingBudgetLen = fetchData('budgets')?.length ?? 0;
   return `${existingBudgetLen * 34} 65% 50%`; // HSL
 }
 
@@ -21,8 +24,8 @@ export const createBudget = ({ name, amount }) => {
   }
 
   // Null coalescing -> returns its right-hand side operand when it's left-hand side operand is null or undefined.
-  const existingBudgets = fetchData("budgets") ?? [];
-  return localStorage.setItem("budgets", JSON.stringify([...existingBudgets, newItem]));
+  const existingBudgets = fetchData('budgets') ?? [];
+  return localStorage.setItem('budgets', JSON.stringify([...existingBudgets, newItem]));
 }
 
 // delete item
