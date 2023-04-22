@@ -28,6 +28,22 @@ export const createBudget = ({ name, amount }) => {
   return localStorage.setItem('budgets', JSON.stringify([...existingBudgets, newItem]));
 }
 
+// create expense
+export const createExpense = ({ name, amount, budgetId }) => {
+  // crypto allows you to use in-built js functions to generate random uuid.
+  const newItem = {
+    id: crypto.randomUUID(),
+    name,
+    createdAt: Date.now(),
+    amount: +amount,
+    budgetId
+  }
+
+  // Null coalescing -> returns its right-hand side operand when it's left-hand side operand is null or undefined.
+  const existingExpenses = fetchData('expenses') ?? [];
+  return localStorage.setItem('expenses', JSON.stringify([...existingExpenses, newItem]));
+}
+
 // delete item
 export const deleteItem = ({ key }) => {
   return localStorage.removeItem(key);
