@@ -1,5 +1,9 @@
 // helper function
-import { calculateSpentByBudget, formatCurrency, formatPercentage } from '../helpers';
+import { 
+  calculateSpentByBudget, 
+  formatCurrency, 
+  formatPercentage 
+} from '../helpers';
 
 const BudgetItem = ({ budget }) => {
   const { id, name, amount, color } = budget;

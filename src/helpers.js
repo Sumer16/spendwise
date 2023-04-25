@@ -51,7 +51,7 @@ export const deleteItem = ({ key }) => {
 
 // Total spent by budget
 export const calculateSpentByBudget = (budgetId) => {
-  const expenses = fetchData("expenses") ?? [];
+  const expenses = fetchData('expenses') ?? [];
   const budgetSpent = expenses.reduce((acc, expense) => {
     // Check if expense.id === budgetId
     if (expense.budgetId !== budgetId) return acc;
@@ -67,15 +67,15 @@ export const formatCurrency = (amt) => {
   // undefined is used so that where ever this app is opened they get the
   // string converted in to their local language.
   return amt.toLocaleString(undefined, {
-    style: "currency",
-    currency: "USD",
+    style: 'currency',
+    currency: 'USD',
   });
 }
 
 // Format Percentage
 export const formatPercentage = (amt) => {
   return amt.toLocaleString(undefined, {
-    style: "percent",
+    style: 'percent',
     minimumFractionDigits: 0,
   });
 }
