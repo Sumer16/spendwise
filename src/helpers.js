@@ -1,4 +1,4 @@
-export const waitwa = () => new Promise(res => setTimeout(res, Math.random() * 2000));
+export const waitwa = () => new Promise(res => setTimeout(res, Math.random() * 500));
 
 // colors
 const generateRandomColor = () => {
@@ -79,3 +79,6 @@ export const formatPercentage = (amt) => {
     minimumFractionDigits: 0,
   });
 }
+
+// Format date
+export const formatDateToLocaleString = (epoch) => new Date(epoch).toLocaleDateString();
