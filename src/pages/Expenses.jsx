@@ -26,7 +26,7 @@ export async function expensesAction({ request }) {
   if (_action === 'deleteExpense') {
     try {
       deleteItem({
-        key: "expenses",
+        key: 'expenses',
         id: values.expenseId,
       });
       return toast.success('Expense deleted!');
